@@ -1,5 +1,6 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 import { Author } from "./Author.js";
+import { Library } from "./Library.js";
 
 @Entity("book")
 export class Book extends BaseEntity {
@@ -11,4 +12,9 @@ export class Book extends BaseEntity {
 
     @ManyToOne(()=>Author,author=>author.books)
     author: Author
+    @ManyToMany(()=>Library,library=>library.books)
+    @JoinTable({
+        name: "book_library" 
+    })
+    libraries: Library[];
 }

@@ -13,7 +13,7 @@ router.post("/", async (req: Request, res: Response, next:NextFunction) => {
             })
         }
 
-        const author =  await createAuthorController(req.body)
+        const author =  await createAuthorController(req.body,req.body.addressId)
 
         res.status(201).json({
             message: "Author created successfully",

@@ -1,6 +1,5 @@
 import { BaseEntity, Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm"
 import { Author } from "./Author.js";
-import { JoinColumn } from "typeorm";
 @Entity("address")
 export class Address extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
@@ -12,7 +11,7 @@ export class Address extends BaseEntity {
     @Column({length: 255})
     country:string;
     @OneToOne(()=>Author,author=>author.address)
-    @JoinColumn({name: "addressId"})
+    
     author:Partial<Author>;
    
 
