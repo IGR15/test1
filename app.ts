@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import express from 'express';
 import env from "dotenv";
-import bookRoute from "./routes/book.js"
-import authorRoute from "./routes/author.js"
-import addressRoute from "./routes/address.js"
-import libraryRoute from "./routes/library.js"
 import dataSource from "./db/dbConfig.js";
+import catagoryRoute from "./routes/catagory.js";
+import proudctRoute from "./routes/product.js";
+import shopRoute from "./routes/shop.js";
+import hotlineRoute from "./routes/hotline.js";
 import { customErrorHandler, DefaultErrorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
@@ -17,11 +17,10 @@ app.get("/", (req: Request, res: Response) => {
     res.send("hello world");
 })
 
-app.use("/books", bookRoute);
-app.use("/author", authorRoute)
-app.use('/address',addressRoute)
-app.use('/library', libraryRoute)
-
+app.use('/hotline',hotlineRoute)
+app.use('/catagory',catagoryRoute)
+app.use('/products',proudctRoute)
+app.use('/shop',shopRoute)
 
 app.use(customErrorHandler)
 

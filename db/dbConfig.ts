@@ -1,8 +1,8 @@
 import { DataSource } from "typeorm";
-import { Book } from "./entities/Book.js";
-import { Author } from "./entities/Author.js";
-import { Address } from "./entities/Address.js";
-import { Library } from "./entities/Library.js";
+import { Catagory } from "./entities/Catagory.js";
+import { Product } from "./entities/Product.js";
+import { Hotline } from "./entities/Hotline.js";
+import { Shop } from "./entities/Shop.js";
 
 
 const dataSource = new DataSource({
@@ -11,10 +11,10 @@ const dataSource = new DataSource({
     port: 3306,
     username: "root",
     password: "",
-    database: "books-db",
+    database: "ecommers-db",
     synchronize: true,
     logging: false,
-    entities: [Book,Author,Address,Library]
+    entities: [Catagory,Product,Hotline,Shop]
 
 })
 
